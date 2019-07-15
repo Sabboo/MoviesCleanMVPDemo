@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MoviesCleanMVP</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="activity_home_bottom_nav_home">Home</string>
+    <string name="activity_home_bottom_nav_favourites">Favourites</string>
+
+
+    // Facebook resources
+    <string name="facebook_app_id">455670275233661</string>
+    <string name="fb_login_protocol_scheme">fb455670275233661</string>
+    <string name="proceed_to_movies">Proceed to movies</string>
+
+</resources>

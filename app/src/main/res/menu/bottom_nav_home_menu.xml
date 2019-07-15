@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/moviesListFragment"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="@string/activity_home_bottom_nav_home"
+        tools:ignore="AlwaysShowAction" />
+    <item
+        android:id="@+id/favouriteMoviesFragment"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="@string/activity_home_bottom_nav_favourites"
+        tools:ignore="AlwaysShowAction" />
+
+</menu>

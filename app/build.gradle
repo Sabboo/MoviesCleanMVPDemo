@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
+
+def versionMajor = 0
+def versionMinor = 1
+def versionPatch = 0
+def minSdk = 19
+def sdkVersion = 28
+
+android {
+
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "com.example.moviescleanmvpdemo"
+
+        minSdkVersion minSdk
+        targetSdkVersion sdkVersion
+
+        versionCode minSdk * 10000000 + versionMajor * 10000 + versionMinor * 100 + versionPatch
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Rx specific
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    // These compileOptions made specifically for okHttp library to compile
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+ext {
+    // Core
+    androidAppCompatVersion = '1.0.2'
+    androidConstraintLayoutVersion = '1.1.3'
+    androidLegacySupportVersion = '1.0.0'
+    androidSupportVersion = '28.0.0'
+
+    // Testing
+    jUnit = '4.12'
+    androidTestRunner = '1.2.0'
+    espresso = '3.2.0'
+
+    // Network
+    retrofitVersion = '2.6.0'
+    retrofitRxAdapter = '1.0.0'
+    loggingInterceptorVersion = '3.14.2'
+
+    // Room
+    room_version = '2.1.0'
+
+    // Rx
+    rxJavaVersion = '2.2.8'
+    rxAndroidVersion = '2.1.1'
+
+    // Glide
+    glideVersion = '4.9.0'
+
+    // Stetho
+    stethoVersion = '1.5.1'
+
+    // Navigation Component
+    navigationComponentVersion = '2.0.0'
+
+    // Facebook Login
+    facebookLoginVersion = '[4,5)'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Core
+    implementation "androidx.appcompat:appcompat:$androidAppCompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$androidConstraintLayoutVersion"
+    implementation "com.android.support:design:$androidSupportVersion"
+
+    // Testing
+    implementation "androidx.legacy:legacy-support-v4:$androidLegacySupportVersion"
+    testImplementation "junit:junit:$jUnit"
+    androidTestImplementation "androidx.test:runner:$androidTestRunner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$retrofitRxAdapter"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+
+    // OkHttp Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+
+    // Reactive
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // Stetho Database Debugging
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+
+    // Navigation Component
+    implementation "androidx.navigation:navigation-fragment:$navigationComponentVersion"
+    implementation "androidx.navigation:navigation-ui:$navigationComponentVersion"
+
+    // Facebook Login
+    implementation "com.facebook.android:facebook-login:$facebookLoginVersion"
+}

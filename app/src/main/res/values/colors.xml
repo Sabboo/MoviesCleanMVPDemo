@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/mine_shaft_2E2D2D</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">@android:color/white</color>
+
+    <color name="mine_shaft_2E2D2D">#2E2D2D</color>
+    <color name="tundora_413F3F">#413F3F</color>
+    <color name="black_000000_o50">#80000000</color>
+    <color name="edward_A2A3A3">#A2A3A3</color>
+</resources>
